@@ -24,16 +24,35 @@ public final class R {
         public static final int ic_launcher=0x7f020000;
     }
     public static final class id {
-        public static final int action_settings=0x7f080009;
-        public static final int btBuscar=0x7f080005;
-        public static final int etBuscar=0x7f080004;
-        public static final int gvHorario=0x7f080002;
-        public static final int lblListHeader=0x7f080007;
-        public static final int lblListItem=0x7f080008;
-        public static final int lvMaterias=0x7f080006;
+        public static final int Cabecera=0x7f080004;
+        public static final int ColJueves=0x7f080008;
+        public static final int ColLunes=0x7f080005;
+        public static final int ColMartes=0x7f080006;
+        public static final int ColMiercoles=0x7f080007;
+        public static final int ColViernes=0x7f080009;
+        public static final int Fila1=0x7f08000c;
+        public static final int Fila2=0x7f080010;
+        public static final int Fila3=0x7f080013;
+        public static final int LineaCabecera=0x7f08000b;
+        public static final int SeparadorCabecera=0x7f08000a;
+        public static final int Tabla=0x7f080003;
+        public static final int action_settings=0x7f08001c;
+        public static final int btBuscar=0x7f080018;
+        public static final int etBuscar=0x7f080017;
+        public static final int h1Jue=0x7f08000f;
+        public static final int h1Lun=0x7f08000d;
+        public static final int h1Mie=0x7f08000e;
+        public static final int h2Mar=0x7f080011;
+        public static final int h2Vie=0x7f080012;
+        public static final int h3Mar=0x7f080014;
+        public static final int h3Vie=0x7f080015;
+        public static final int lblListHeader=0x7f08001a;
+        public static final int lblListItem=0x7f08001b;
+        public static final int lvMaterias=0x7f080019;
+        public static final int tvAula=0x7f080002;
         public static final int tvMateria=0x7f080001;
         public static final int tvNombre=0x7f080000;
-        public static final int tvTexto=0x7f080003;
+        public static final int tvTexto=0x7f080016;
     }
     public static final class layout {
         public static final int activity_horarios_vista=0x7f030000;
