@@ -8,6 +8,7 @@ import java.util.List;
 import android.os.Bundle;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.view.Menu;
 import android.view.View;
@@ -23,7 +24,7 @@ public class MateriasVista extends Activity implements OnChildClickListener {
 	ExpandableListView expListView;
 	List<String> listDataHeader;
 	HashMap<String, List<String>> listDataChild;
-
+	Context c = this;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -89,7 +90,7 @@ public class MateriasVista extends Activity implements OnChildClickListener {
             	switch (childPosition) {
         		
         		case 0:
-        			Intent i  = new Intent (this, HorariosVista.class);
+        			Intent i  = new Intent (c, HorariosVista.class);
         			startActivity(i);
         			break;
             	 }
