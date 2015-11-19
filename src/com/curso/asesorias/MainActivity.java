@@ -3,13 +3,23 @@ package com.curso.asesorias;
 import android.os.Bundle;
 import android.app.Activity;
 import android.view.Menu;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.Button;
+import android.widget.ExpandableListView;
 
-public class MainActivity extends Activity {
+public class MainActivity extends Activity  implements OnClickListener {
 
+	
+	Button buscar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        
+        buscar = (Button) findViewById(R.id.btBuscar);
+        
+        buscar.setOnClickListener(this);
     }
 
 
@@ -19,5 +29,12 @@ public class MainActivity extends Activity {
         getMenuInflater().inflate(R.menu.main, menu);
         return true;
     }
+
+
+	@Override
+	public void onClick(View arg0) {
+		// TODO Auto-generated method stub
+		
+	}
     
 }

@@ -4,5 +4,7 @@
     <string name="app_name">Asesorias</string>
     <string name="action_settings">Settings</string>
     <string name="hello_world">Hello world!</string>
+    <string name="title_activity_materias_vista">MateriasVista</string>
+    <string name="title_activity_horarios_vista">HorariosVista</string>
 
 </resources>

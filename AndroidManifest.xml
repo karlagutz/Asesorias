@@ -22,6 +22,14 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name="com.curso.asesorias.MateriasVista"
+            android:label="@string/title_activity_materias_vista" >
+        </activity>
+        <activity
+            android:name="com.curso.asesorias.HorariosVista"
+            android:label="@string/title_activity_horarios_vista" >
+        </activity>
     </application>
 
 </manifest>
