@@ -7,9 +7,12 @@ import java.util.List;
 
 import android.os.Bundle;
 
+import android.app.ActionBar;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.view.Menu;
 import android.view.View;
 import android.widget.ExpandableListView;
@@ -25,10 +28,16 @@ public class MateriasVista extends Activity implements OnChildClickListener {
 	List<String> listDataHeader;
 	HashMap<String, List<String>> listDataChild;
 	Context c = this;
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_materias_vista);
+		
+		
+		ActionBar bar = getActionBar();
+		bar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#9a0000")));
+		bar.setTitle("Materias");
 		
 		// get the listview
         expListView = (ExpandableListView) findViewById(R.id.lvMaterias);
@@ -90,6 +99,7 @@ public class MateriasVista extends Activity implements OnChildClickListener {
             	switch (childPosition) {
         		
         		case 0:
+
         			Intent i  = new Intent (c, HorariosVista.class);
         			startActivity(i);
         			break;
