@@ -99,7 +99,26 @@
                         android:textColor="#ffffffff"
                         android:textStyle="bold" />
 
+                    
+                          <LinearLayout
+        android:id="@+id/ll3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="bottom|center_horizontal"
+        android:layout_below="@+id/ll2" >
+
+        <TextView
+            android:paddingTop="20dp"
+            android:id="@+id/tvRegistrar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Registrarse"
+            android:textColor="#ffffffff" 
+            />
+    </LinearLayout>
         </LinearLayout>
     </ScrollView>
+    
+  
 
 </RelativeLayout>

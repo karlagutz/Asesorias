@@ -1,5 +1,7 @@
 package com.curso.asesorias;
 
+
+
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.annotation.TargetApi;
@@ -56,13 +58,14 @@ import android.widget.TextView;
 	private TextView mLoginStatusMessageView;
 	ActionBar titulo;
 	private Context c;
+	TextView registrar;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 
 		setContentView(R.layout.activity_login);
-
+		
 		// Set up the login form.
 		titulo = this.getActionBar();
 		titulo.hide();
@@ -73,7 +76,8 @@ import android.widget.TextView;
 		db.register("panfilo", "qwert");
 		db.register("jajaja", "jajaja");
 		
-		
+		registrar = (TextView) findViewById(R.id.tvRegistrar);
+		registrar.setOnClickListener(this);
 		mEmail = getIntent().getStringExtra(EXTRA_EMAIL);
 		mEmailView = (EditText) findViewById(R.id.etUsuario);
 		mEmailView.setText(mEmail);
@@ -254,7 +258,15 @@ import android.widget.TextView;
 	@Override
 	public void onClick(View v) {
 		// TODO Auto-generated method stub
-		attemptLogin();
 		
+		switch (v.getId()) {
+		case R.id.btEntrar:
+			attemptLogin();
+			break;
+		case R.id.tvRegistrar:
+			Intent i = new Intent(this, Registro.class);
+			startActivity(i);
+			break;
+		}
 	}
 }

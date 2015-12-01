@@ -12,7 +12,7 @@ public class DBAdapter {
 	public static final String KEY_USERNAME = "username";
 	public static final String KEY_PASSWORD = "password";
 
-	SQLiteDatabase mDb;
+	static SQLiteDatabase mDb;
 	Context mCtx;
 	DBHelper mDbHelper;
 
@@ -30,7 +30,7 @@ public class DBAdapter {
 		mDbHelper.close();
 	}
 
-	public long register(String user, String pw) {
+	public static long register(String user, String pw) {
 		ContentValues initialValues = new ContentValues();
 		initialValues.put(KEY_USERNAME, user);
 		initialValues.put(KEY_PASSWORD, pw);

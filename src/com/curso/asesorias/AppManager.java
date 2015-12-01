@@ -40,9 +40,9 @@ public class AppManager {
 							new String []{"INTRODUCCION AL ANALISIS MATEMATICO", "ANÁLISIS MATEMÁTICOS I","ANÁLISIS MATEMÁTICOS II","MODELOS ESTOCÁSTICOS","PROBABILIDAD"}, avilaGodoy));
 		
 		masters.add(new Maestro("ÁVILA GODOY RAMIRO", "EDIF. 3K2, 2DO. PISO MÓDULO 3, CUB. I", 
-								new String []{"calculo I","SEMINARIO D PROFUNDISACION EN TEMAS MATEMATICOS"}, horario));
+								new String []{"CÁLCULO I","SEMINARIO D PROFUNDISACION EN TEMAS MATEMATICOS"}, horario));
 		
-		masters.add(new Maestro("BACA RAMIREZ ABEL", "EDIF. 3K3, 2DO. PISO MODULO 2, CUB. 1", new String []{"CALCULO III"}, horario3));
+		masters.add(new Maestro("BACA RAMIREZ ABEL", "EDIF. 3K3, 2DO. PISO MODULO 2, CUB. 1", new String []{"CÁLCULO III"}, horario3));
 		
 		masters.add(new Maestro("BAUTISTA JACOBO ALEJANDRINA", "BIBLIOTECA DEL EDIFICIO 7C. “ESC. DE MEDICINA", new String []{"BIOESTADISTICA"}, horario));
 		
