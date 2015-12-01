@@ -29,10 +29,11 @@ import android.widget.TextView;
 	/**
 	 * A dummy authentication store containing known user names and passwords.
 	 * TODO: remove after connecting to a real authentication system.
-	 */
+	 *
 	private static final String[] DUMMY_CREDENTIALS = new String[] {
 			"alan:brito", "benito:world" };
-
+			*/
+	private DBAdapter db;
 	/**
 	 * The default email to populate the email field with.
 	 */
@@ -66,6 +67,12 @@ import android.widget.TextView;
 		titulo = this.getActionBar();
 		titulo.hide();
 		c = this;
+		db = new DBAdapter(this);
+		db.open();
+		
+		db.register("panfilo", "qwert");
+		db.register("jajaja", "jajaja");
+		
 		
 		mEmail = getIntent().getStringExtra(EXTRA_EMAIL);
 		mEmailView = (EditText) findViewById(R.id.etUsuario);
@@ -203,22 +210,20 @@ import android.widget.TextView;
 		@Override
 		protected Boolean doInBackground(Void... params) {
 			// TODO: attempt authentication against a network service.
-
+				
+			String username = mEmailView.getText().toString();
+			String password = mPasswordView.getText().toString();
 			try {
 				// Simulate network access.
 				Thread.sleep(2000);
 			} catch (InterruptedException e) {
 				return false;
 			}
-
-			for (String credential : DUMMY_CREDENTIALS) {
-				String[] pieces = credential.split(":");
-				if (pieces[0].equals(mEmail)) {
-					// Account exists, return true if the password matches.
-					return pieces[1].equals(mPassword);
-				}
+			
+			if (db.Login(username, password)) {
+				return true;
 			}
-
+		
 			// TODO: register the new account here.
 			return false;
 		}
@@ -229,12 +234,12 @@ import android.widget.TextView;
 			showProgress(false);
 
 			if (success) {
-				//Intent i = new Intent(c, MainActivity.class);
-				//startActivity(i);
+				Intent i = new Intent(c, MainActivity.class);
+				startActivity(i);
 				finish();
 			} else {
 				mPasswordView
-						.setError(getString(R.string.error_incorrect_password));
+						.setError(getString(R.string.error_incorrect_login_info));
 				mPasswordView.requestFocus();
 			}
 		}

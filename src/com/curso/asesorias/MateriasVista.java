@@ -22,29 +22,39 @@ import android.widget.ExpandableListView.OnGroupCollapseListener;
 import android.widget.ExpandableListView.OnGroupExpandListener;
 import android.widget.Toast;
 
-public class MateriasVista extends Activity implements OnChildClickListener {
+public class MateriasVista extends Activity  {
 	ExpandableListAdapter listAdapter;
 	ExpandableListView expListView;
-	List<String> listDataHeader;
-	HashMap<String, List<String>> listDataChild;
+	private List<String> listDataHeader;
+	private HashMap<String, List<String>> listDataChild;
+	private HashMap<String,Maestro> maestrosMap;
+	private ListObjects list;
 	Context c = this;
-
+	AppManager app;
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_materias_vista);
 		
-		
+		app = new AppManager();
 		ActionBar bar = getActionBar();
 		bar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#9a0000")));
 		bar.setTitle("Materias");
+		
+		
 		
 		// get the listview
         expListView = (ExpandableListView) findViewById(R.id.lvMaterias);
  
         // preparing list data
-        prepareListData();
+      
  
+        list = app.buscar(getIntent().getStringExtra("filtro"));
+        listDataHeader = list.getListDataHeader();
+        listDataChild = list.getListDataChild();
+        maestrosMap = list.getMaestrosMap();
+        
         listAdapter = new ExpandableListAdapter(this, listDataHeader, listDataChild);
  
         // setting list adapter
@@ -96,14 +106,12 @@ public class MateriasVista extends Activity implements OnChildClickListener {
             public boolean onChildClick(ExpandableListView parent, View v,
                     int groupPosition, int childPosition, long id) {
 
-            	switch (childPosition) {
-        		
-        		case 0:
-
+            	
+            	    String maestroNombre = listDataChild.get(listDataHeader.get(groupPosition)).get(childPosition);
         			Intent i  = new Intent (c, HorariosVista.class);
+        			i.putExtra("nombre", maestroNombre);
         			startActivity(i);
-        			break;
-            	 }
+        			
         			
                 // TODO Auto-generated method stub
 
@@ -120,49 +128,7 @@ public class MateriasVista extends Activity implements OnChildClickListener {
         });
         
 	}
-	 private void prepareListData() {
-	        listDataHeader = new ArrayList<String>();
-	        listDataChild = new HashMap<String, List<String>>();
 	 
-	        // Adding child data
-	        listDataHeader.add("CÁLCULO DIFERENCIAL E INTEGRAL I");
-	        listDataHeader.add("CÁLCULO DIFERENCIAL E INTEGRAL II");
-	        listDataHeader.add("CÁLCULO DIFERENCIAL E INTEGRAL III");
-	 
-	        // Adding child data
-	        List<String> calculo1 = new ArrayList<String>();
-	        calculo1.add("ÁVILA GODOY RAMIRO");
-	        calculo1.add("BACA RAMIREZ ABEL");
-	        calculo1.add("BRAVO TAPIA JOSÉ MARÍA");
-	        calculo1.add("CAUDANA CAMACHO GERMÁN");
-
-	        List<String> calculo2 = new ArrayList<String>();
-	        calculo2.add("ÁVILA GODOY RAMIRO");
-	        calculo2.add("BACA RAMIREZ ABEL");
-	        calculo2.add("BRAVO TAPIA JOSÉ MARÍA");
-	        calculo2.add("CAUDANA CAMACHO GERMÁN");
-
-	        List<String> calculo3 = new ArrayList<String>();
-	        calculo3.add("ÁVILA GODOY RAMIRO");
-	        calculo3.add("BACA RAMIREZ ABEL");
-	        calculo3.add("BRAVO TAPIA JOSÉ MARÍA");
-	        calculo3.add("CAUDANA CAMACHO GERMÁN");
-	 
-	        listDataChild.put(listDataHeader.get(0), calculo1); // Header, Child data
-	        listDataChild.put(listDataHeader.get(1), calculo2);
-	        listDataChild.put(listDataHeader.get(2), calculo3);
-	    }
-	@Override
-	public boolean onCreateOptionsMenu(Menu menu) {
-		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.materias_vista, menu);
-		return true;
-	}
-	@Override
-	public boolean onChildClick(ExpandableListView arg0, View arg1, int arg2,
-			int arg3, long arg4) {
-		// TODO Auto-generated method stub
-		return false;
-	}
+	
 
 }
